@@ -5,13 +5,7 @@ use std::error::Error;
 use vercel_lambda::{error::VercelError, lambda, IntoResponse, Request, Response};
 
 fn handler(_: Request) -> Result<impl IntoResponse, VercelError> {
-	// println!("first phone number: {}", info["phones"][0]);
-
-	// // Convert to a string of JSON and print it out
-	// println!("{}", info.to_string());
-
-	let pi = calc_pi(800);
-
+	let pi = calc_pi(10000);
 	let info = json!({ "pi": pi });
 
 	let response = Response::builder()
@@ -42,13 +36,11 @@ fn calc_pi(iterations: u32) -> std::string::String {
 
 	while count < iterations {
 		if &q * 4 + &r - &t < &n * &t {
-			// println!("{}", n);
 			let str = n.to_string();
 
 			pi = format!("{}{}", pi, str);
 
 			if first {
-				// print!(".");
 				pi = format!("{}{}", pi, ".");
 				first = false;
 			}
@@ -69,9 +61,6 @@ fn calc_pi(iterations: u32) -> std::string::String {
 
 		count += 1;
 	}
-
-	println!("");
-	println!("{}", pi);
 
 	return pi;
 }
