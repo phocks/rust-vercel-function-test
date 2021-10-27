@@ -1,0 +1,18 @@
+[package]
+name = "index"
+version = "1.0.0"
+authors = ["Your Name <your@site.com>"]
+edition = "2018"
+
+[dependencies]
+http = "0.1"
+serde_json = "1.0.68"
+vercel_lambda = "*"
+
+# [[bin]]
+# name = "user"
+# path = "user.rs"
+
+[lib]
+name = "util"
+path = "_util.rs"
